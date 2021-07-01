@@ -3,6 +3,9 @@ package com.chasemanoukian.yourfavoritelakersbackend;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Document
 public class Player {
     @Id
@@ -11,9 +14,9 @@ public class Player {
     private String firstName;
     private String lastName;
 
-//    private Map<String, String> seasonStats = new HashMap<>();
-//    private Map<String, String> prevTen = new HashMap<>();
-//    private Map<String, String> prevSeasons = new HashMap<>();
+    private Map<String, String> seasonStats = new HashMap<>();
+    private Map<String, Map<String, String>> prevTen = new HashMap<>();
+    private Map<String, Map<String, String>> prevSeasons = new HashMap<>();
 
     public String getId() {
         return id;
@@ -39,27 +42,27 @@ public class Player {
         this.lastName = lastName;
     }
 
-//    public Map<String, String> getSeasonStats() {
-//        return seasonStats;
-//    }
-//
-//    public void setSeasonStats(Map<String, String> seasonStats) {
-//        this.seasonStats = seasonStats;
-//    }
-//
-//    public Map<String, String> getPrevTen() {
-//        return prevTen;
-//    }
-//
-//    public void setPrevTen(Map<String, String> prevTen) {
-//        this.prevTen = prevTen;
-//    }
-//
-//    public Map<String, String> getPrevSeasons() {
-//        return prevSeasons;
-//    }
-//
-//    public void setPrevSeasons(Map<String, String> prevSeasons) {
-//        this.prevSeasons = prevSeasons;
-//    }
+    public Map<String, String> getSeasonStats() {
+        return seasonStats;
+    }
+
+    public void setSeasonStats(Map<String, String> seasonStats) {
+        this.seasonStats = seasonStats;
+    }
+
+    public Map<String, Map<String, String>> getPrevTen() {
+        return prevTen;
+    }
+
+    public void setPrevTen(Map<String, Map<String, String>> prevTen) {
+        this.prevTen = prevTen;
+    }
+
+    public Map<String, Map<String, String>> getPrevSeasons() {
+        return prevSeasons;
+    }
+
+    public void setPrevSeasons(Map<String, Map<String, String>> prevSeasons) {
+        this.prevSeasons = prevSeasons;
+    }
 }

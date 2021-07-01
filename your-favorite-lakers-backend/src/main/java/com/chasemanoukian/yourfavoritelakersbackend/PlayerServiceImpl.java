@@ -21,6 +21,18 @@ public class PlayerServiceImpl implements PlayerService {
         return playerRepository.findAll();
     }
 
+//    @Override
+//    public Player findOne(String id) {
+//        List<Player> players = playerRepository.findAll();
+//        for (Player p:players) {
+//            String pId = (String) p.getId();
+//            if (pId == id) return p;
+//        }
+//        return null;
+//
+//        Player player = new MongoOperations().findById(new ObjectId(id));
+//    }
+
     @Override
     public Player update(Player player) {
         return playerRepository.save(player);

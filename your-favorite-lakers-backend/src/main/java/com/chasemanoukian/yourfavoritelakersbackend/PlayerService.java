@@ -9,6 +9,7 @@ import java.util.Map;
 public interface PlayerService {
     Player create(Player player);
     List<Player> read();
+//    Player findOne(String id);
     Player update(Player player);
     Map<String, String> delete(String id);
 }
