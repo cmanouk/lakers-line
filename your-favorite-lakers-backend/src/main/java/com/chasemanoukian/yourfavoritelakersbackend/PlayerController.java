@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("api/players")
@@ -22,10 +23,10 @@ public class PlayerController {
         return playerService.read();
     }
 
-//    @GetMapping(value = "/{id}", produces = "application/json")
-//    public Player getPlayerById(@PathVariable String id) {
-//        return playerService.findOne(id);
-//    }
+    @GetMapping(value = "/{id}", produces = "application/json")
+    public Optional<Player> findById(@PathVariable String id) {
+        return playerService.findById(id);
+    }
 
 
     @PutMapping(consumes = "application/json", produces = "application/json")

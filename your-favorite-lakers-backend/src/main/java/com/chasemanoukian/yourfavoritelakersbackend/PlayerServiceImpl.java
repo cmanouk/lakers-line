@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Component
 public class PlayerServiceImpl implements PlayerService {
@@ -21,17 +22,10 @@ public class PlayerServiceImpl implements PlayerService {
         return playerRepository.findAll();
     }
 
-//    @Override
-//    public Player findOne(String id) {
-//        List<Player> players = playerRepository.findAll();
-//        for (Player p:players) {
-//            String pId = (String) p.getId();
-//            if (pId == id) return p;
-//        }
-//        return null;
-//
-//        Player player = new MongoOperations().findById(new ObjectId(id));
-//    }
+    @Override
+    public Optional<Player> findById(String id) {
+        return playerRepository.getPlayerById(id);
+    }
 
     @Override
     public Player update(Player player) {
