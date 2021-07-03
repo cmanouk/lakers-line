@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataQueries {
-    private final String playerLink = "https://www.espn.com/nba/player/_/id/";
+    private static final String playerLink = "https://www.espn.com/nba/player/_/id/";
 
     public List<String> getIds(Elements els) {
         List<String> ids = new ArrayList<>();
@@ -19,5 +19,11 @@ public class DataQueries {
         }
 
         return ids;
+    }
+
+    public void testRunnable(String id) {
+        Runnable runnable = new DataQueriesRunnable(id, playerLink);
+        Thread thread = new Thread(runnable);
+        thread.start();
     }
 }
