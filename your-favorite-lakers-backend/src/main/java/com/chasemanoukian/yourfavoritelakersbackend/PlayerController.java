@@ -28,7 +28,6 @@ public class PlayerController {
         return playerService.findById(id);
     }
 
-
     @PutMapping(consumes = "application/json", produces = "application/json")
     public Player updatePlayer(@RequestBody Player player) {
         return playerService.update(player);
