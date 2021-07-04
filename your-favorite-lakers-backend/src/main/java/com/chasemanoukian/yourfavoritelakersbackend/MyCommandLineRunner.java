@@ -22,13 +22,15 @@ public class MyCommandLineRunner implements ApplicationListener<ApplicationReady
 
             DataQueries queries = new DataQueries();
             List<String> ids = queries.getIds(els);
-
-            // async | uses multi-threading to complete tasks efficiently
-            for (String id : ids) {
-                queries.testRunnable(id);
-            }
+            ids.remove(0);
 
             System.out.println(ids.toString());
+
+            // async | uses multi-threading to complete tasks efficiently
+//            for (String id : ids) {
+//                queries.testRunnable(id);
+//            }
+            queries.testRunnable("1966");
         } catch (IOException e) {
             e.printStackTrace();
         }
