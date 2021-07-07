@@ -24,13 +24,9 @@ public class MyCommandLineRunner implements ApplicationListener<ApplicationReady
             List<String> ids = queries.getIds(els);
             ids.remove(0);
 
-            System.out.println(ids.toString());
-
-            // async | uses multi-threading to complete tasks efficiently
-//            for (String id : ids) {
-//                queries.testRunnable(id);
-//            }
-            queries.testRunnable("1966");
+            for (String id : ids) {
+                queries.testRunnable(id);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

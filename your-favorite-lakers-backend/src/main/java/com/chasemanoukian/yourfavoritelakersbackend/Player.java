@@ -130,4 +130,11 @@ public class Player {
     public void setUrls(List<String> urls) {
         this.urls = urls;
     }
+
+    @Override
+    public String toString() {
+        return String.format(
+                this.getFirstName() + " "  + this.getLastName() + ": " + this.get_id() + "."
+        );
+    }
 }

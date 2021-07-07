@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 public class DataQueries {
     private static final String playerLink = "https://www.espn.com/nba/player/_/id/";
 
@@ -50,7 +51,11 @@ public class DataQueries {
     }
 
     public void testRunnable(String id) {
-        Runnable runnable = new DataQueriesRunnable(id, playerLink);
+        // -------------------------------------------- //
+        DataQueriesRunnable runnable = new DataQueriesRunnable();
+        runnable.set_id(id);
+        runnable.setLink(playerLink.concat(id));
+        // -------------------------------------------- //
         Thread thread = new Thread(runnable);
         thread.start();
     }

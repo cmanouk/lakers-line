@@ -9,6 +9,7 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 @EnableAsync
 public class YourFavoriteLakersApplication {
+	private PlayerRepository playerRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(YourFavoriteLakersApplication.class, args);
@@ -18,6 +19,4 @@ public class YourFavoriteLakersApplication {
 	public RestTemplate getRestTemplate() {
 		return new RestTemplate();
 	}
-
-
 }
