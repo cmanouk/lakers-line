@@ -5,7 +5,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 @Component
 public class PlayerServiceImpl implements PlayerService {
@@ -23,7 +22,7 @@ public class PlayerServiceImpl implements PlayerService {
     }
 
     @Override
-    public Optional<Player> findById(String id) {
+    public Player findById(String id) {
         return playerRepository.getPlayerById(id);
     }
 

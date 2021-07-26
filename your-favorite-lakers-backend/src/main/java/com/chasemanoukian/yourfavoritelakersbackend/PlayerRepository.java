@@ -2,10 +2,10 @@ package com.chasemanoukian.yourfavoritelakersbackend;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
+import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
-
+@Repository
 public interface PlayerRepository extends MongoRepository<Player, String> {
     @Query("{ '_id' : ?0 }")
-    Optional<Player> getPlayerById(String id);
+    Player getPlayerById(String id);
 }

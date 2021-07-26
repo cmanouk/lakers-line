@@ -34,7 +34,7 @@ public class DataQueries {
                 .get(getIdx)
                 .children();
 
-        if (className != "PlayerStats") stats.put(els.get(0).text(), els.get(1).text());
+        if (className != "PlayerStats") stats.put("prev", els.get(0).text() + " " + els.get(1).text());
         for (int i = 0; i < byIdx; i++) {
             els.remove(0);
         }
@@ -48,15 +48,5 @@ public class DataQueries {
         stats.put("BLK", els.get(2).text());
 
         return stats;
-    }
-
-    public void testRunnable(String id) {
-        // -------------------------------------------- //
-        DataQueriesRunnable runnable = new DataQueriesRunnable();
-        runnable.set_id(id);
-        runnable.setLink(playerLink.concat(id));
-        // -------------------------------------------- //
-        Thread thread = new Thread(runnable);
-        thread.start();
     }
 }
