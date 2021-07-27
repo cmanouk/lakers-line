@@ -52,7 +52,7 @@ public class PlayerController {
 //        }
 
         QueueRunnable qr = new QueueRunnable("1966", playerService);
-//        qr.executeRunnable();
-        qr.executePrevSeasonsRunnable();
+        qr.executeRunnable();
+//        qr.executePrevSeasonsRunnable();
     }
 }

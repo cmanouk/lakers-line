@@ -4,6 +4,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 public class DataQueriesRunnable implements Runnable {
@@ -41,6 +42,8 @@ public class DataQueriesRunnable implements Runnable {
             Document doc = Jsoup.connect(link).get();
             DataQueries dq = new DataQueries();
 
+            List<String> jerseyAndPosition = dq.getJerseyAndPosition(doc);
+            List<String> playerBio = dq.getPlayerBio(doc);
             Map<String, String> seasonStats = dq.getStats(doc, "PlayerStats", 1, 5);
             Map<String, String> gameStats = dq.getStats(doc, "gamelogWidget--basketball", 0, 7);
 
@@ -55,6 +58,8 @@ public class DataQueriesRunnable implements Runnable {
                     player.setSeasonStats(seasonStats);
                     playerService.update(player);
                 }
+            } else {
+
             }
         } catch (IOException e) {
             e.printStackTrace();

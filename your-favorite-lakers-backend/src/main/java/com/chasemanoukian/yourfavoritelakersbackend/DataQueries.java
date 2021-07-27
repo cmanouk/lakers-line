@@ -49,4 +49,30 @@ public class DataQueries {
 
         return stats;
     }
+
+    public List<String> getJerseyAndPosition(Document doc) {
+        List<String> data = new ArrayList<>();
+
+        Element el = doc.getElementsByClass("PlayerHeader__Team_Info").first();
+        data.add(el.child(1).text());
+        data.add(el.child(2).text());
+
+        return data;
+    }
+
+    public List<String> getPlayerBio(Document doc) {
+        List<String> data = new ArrayList<>();
+
+        Element el = doc.getElementsByClass("PlayerHeader__Bio_List").first();
+        for (int i = 0; i < 3; i++) {
+            if (el.child(i).child(0).text() == "College" || i < 2) {
+                data.add(el.child(i).child(1).text());
+            }
+        }
+
+        for (int i = 0; i < data.size(); i++) {
+            System.out.println(data.get(i));
+        }
+        return data;
+    }
 }
