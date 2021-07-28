@@ -83,7 +83,10 @@ public class DataQueriesRunnable implements Runnable {
                 urls.add("/" + playerName.get(0) + playerName.get(1) + "/4");
                 newPlayer.setUrls(urls);
 
-                playerService.create(newPlayer);
+                Player createdPlayer = playerService.create(newPlayer);
+                if (createdPlayer.get_id() != null) {
+                    new QueueRunnable(createdPlayer.get_id(), playerService).executePrevSeasonsRunnable();
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();

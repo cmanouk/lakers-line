@@ -1,8 +1,12 @@
 package com.chasemanoukian.yourfavoritelakersbackend;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -40,19 +44,20 @@ public class PlayerController {
     @GetMapping(value = "/crawl", produces = "application/json")
     public void crawlPlayerStats() {
     // CR QueueRunnable and execute
-//        try {
-//            Document doc = Jsoup.connect("https://www.espn.com/nba/team/roster/_/name/lal").get();
-//            Elements els = doc.getElementsByTag("tr");
-//
-//            DataQueries queries = new DataQueries();
-//            List<String> ids = queries.getIds(els);
-//            ids.remove(0);
-//        } catch(IOException e) {
-//            e.printStackTrace();
-//        }
+        try {
+            Document doc = Jsoup.connect("https://www.espn.com/nba/team/roster/_/name/lal").get();
+            Elements els = doc.getElementsByTag("tr");
 
-        QueueRunnable qr = new QueueRunnable("1966", playerService);
-        qr.executeRunnable();
-//        qr.executePrevSeasonsRunnable();
+            DataQueries queries = new DataQueries();
+            List<String> ids = queries.getIds(els);
+            ids.remove(0);
+
+            for (String id : ids) {
+                QueueRunnable qr = new QueueRunnable(id, playerService);
+                qr.executeRunnable();
+            }
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
     }
 }
