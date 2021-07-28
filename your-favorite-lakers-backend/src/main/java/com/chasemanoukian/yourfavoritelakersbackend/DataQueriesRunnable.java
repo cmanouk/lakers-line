@@ -4,6 +4,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -42,6 +43,7 @@ public class DataQueriesRunnable implements Runnable {
             Document doc = Jsoup.connect(link).get();
             DataQueries dq = new DataQueries();
 
+            List<String> playerName = dq.getPlayerName(doc);
             List<String> jerseyAndPosition = dq.getJerseyAndPosition(doc);
             List<String> playerBio = dq.getPlayerBio(doc);
             Map<String, String> seasonStats = dq.getStats(doc, "PlayerStats", 1, 5);
@@ -59,7 +61,29 @@ public class DataQueriesRunnable implements Runnable {
                     playerService.update(player);
                 }
             } else {
+                Player newPlayer = new Player();
+                newPlayer.set_id(_id);
+                newPlayer.setFirstName(playerName.get(0));
+                newPlayer.setLastName(playerName.get(1));
+                newPlayer.setPosition(jerseyAndPosition.get(1));
+                newPlayer.setJerseyNumber(jerseyAndPosition.get(0));
+                newPlayer.setHeight(playerBio.get(0));
+                newPlayer.setWeight(playerBio.get(1));
+                newPlayer.setAge(playerBio.get(2));
+                if (playerBio.size() == 4) {
+                    newPlayer.setCollege(playerBio.get(3));
+                }
+                newPlayer.setSeasonStats(seasonStats);
+                newPlayer.getPrevTen().put(gameStatsKey, gameStats);
 
+                List<String> urls = new ArrayList<>();
+                urls.add("/" + playerName.get(0) + playerName.get(1) + "/1");
+                urls.add("/" + playerName.get(0) + playerName.get(1) + "/2");
+                urls.add("/" + playerName.get(0) + playerName.get(1) + "/3");
+                urls.add("/" + playerName.get(0) + playerName.get(1) + "/4");
+                newPlayer.setUrls(urls);
+
+                playerService.create(newPlayer);
             }
         } catch (IOException e) {
             e.printStackTrace();

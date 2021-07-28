@@ -65,14 +65,29 @@ public class DataQueries {
 
         Element el = doc.getElementsByClass("PlayerHeader__Bio_List").first();
         for (int i = 0; i < 3; i++) {
-            if (el.child(i).child(0).text() == "College" || i < 2) {
+            if (i == 0) {
+                String[] heightWeight = el.child(i).child(1).text().split(",");
+                data.add(heightWeight[0].trim());
+                data.add(heightWeight[1].trim());
+            } else if (el.child(i).child(0).text() == "College" || i == 1) {
                 data.add(el.child(i).child(1).text());
             }
         }
 
-        for (int i = 0; i < data.size(); i++) {
-            System.out.println(data.get(i));
+        return data;
+    }
+
+    public List<String> getPlayerName(Document doc) {
+        List<String> data = new ArrayList<>();
+
+        Elements els = doc.getElementsByClass("PlayerHeader__Name")
+                .first()
+                .children();
+
+        for (Element el: els) {
+            data.add(el.text());
         }
+
         return data;
     }
 }
