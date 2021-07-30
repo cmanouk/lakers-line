@@ -57,6 +57,9 @@ public class DataQueriesRunnable implements Runnable {
                 Map<String, Map<String, String>> prevTen = player.getPrevTen();
                 if (!prevTen.containsKey(gameStatsKey)) {
                     prevTen.put(gameStatsKey, gameStats);
+                    if (prevTen.size() > 10) {
+                        prevTen.remove(0);
+                    }
                     player.setSeasonStats(seasonStats);
                     playerService.update(player);
                 }
