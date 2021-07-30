@@ -1,16 +1,21 @@
 import React from 'react';
 
-const Header = ({ setPlayerProfile, currPlayer }) => {
-
+const Header = ({ setPlayerProfile, players, currPlayer }) => {
   return (
     <div className='header'>
       <h1>
-        Your Favorite LAkers:
-        <span>The easiest way to get your favorite players' stats!</span>
+        Your Favorite Lakers: <span>The easiest way to get up-to-date players' stats!</span>
       </h1>
-      <button onClick={() => setPlayerProfile('1966')}>
-        Send it!
-      </button>
+      <select
+        onChange={(e) => setPlayerProfile(e.target.value)}
+        value={currPlayer}
+      >
+        {players.map((p, i) => (
+          <option key={`${p.firstName}-${i}`} value={p._id}>
+            {`${p.firstName} ${p.lastName}`}
+          </option>
+        ))}
+      </select>
     </div>
   )
 }
