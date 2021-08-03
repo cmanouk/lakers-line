@@ -80,10 +80,10 @@ public class DataQueriesRunnable implements Runnable {
                 newPlayer.getPrevTen().put(gameStatsKey, gameStats);
 
                 List<String> urls = new ArrayList<>();
-                urls.add("/" + playerName.get(0) + playerName.get(1) + "/1");
-                urls.add("/" + playerName.get(0) + playerName.get(1) + "/2");
-                urls.add("/" + playerName.get(0) + playerName.get(1) + "/3");
-                urls.add("/" + playerName.get(0) + playerName.get(1) + "/4");
+                urls.add("/" + playerName.get(0) + playerName.get(1) + "1.jpg");
+                urls.add("/" + playerName.get(0) + playerName.get(1) + "2.jpg");
+                urls.add("/" + playerName.get(0) + playerName.get(1) + "3.jpg");
+                urls.add("/" + playerName.get(0) + playerName.get(1) + "4.jpg");
                 newPlayer.setUrls(urls);
 
                 Player createdPlayer = playerService.create(newPlayer);

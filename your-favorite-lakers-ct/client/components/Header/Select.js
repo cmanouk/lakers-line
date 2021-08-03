@@ -5,8 +5,8 @@ const Select = ({ currPlayer, players, setPlayerProfile }) => (
     onChange={(e) => setPlayerProfile(e.target.value)}
     value={currPlayer}
   >
-    {players.map((p, i) => (
-      <option key={`${p.firstName}-${i}`} value={p._id}>
+    {players.map((p) => (
+      <option key={`${p.firstName}-${p.lastName}`} value={p._id}>
         {`${p.firstName} ${p.lastName}`}
       </option>
     ))}

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Header from './Header/Header';
 import PlayerBio from './PlayerBio/PlayerBio';
+import PlayerImages from './PlayerImages/PlayerImages';
+import PlayerStats from './PlayerStats/PlayerStats';
 import dummyData from '../dummyData';
 
 const App = () => {
@@ -17,12 +19,7 @@ const App = () => {
     //   .catch((err) => console.log(err));
     setPlayers(dummyData);
     setCurrPlayer(dummyData[0]);
-    console.log(dummyData);
   }, [])
-
-  // useEffect(() => {
-  //   console.log(currPlayer)
-  // }, [currPlayer])
 
   function setPlayerProfile(id) {
     const player = players.filter((p) => p._id === id)[0];
@@ -36,12 +33,14 @@ const App = () => {
         players={players}
         player={currPlayer}
       />
-      <PlayerBio player={currPlayer} />
-      {/*
-      PlayerBio
-      PlayerImages
-      PlayerStats
-      */}
+      {currPlayer.firstName ?
+      <div className="content-container">
+        <PlayerBio player={currPlayer} />
+        <PlayerImages urls={currPlayer.urls} />
+        <PlayerStats player={currPlayer} />
+      </div> :
+      null
+      }
     </div>
   )
 }

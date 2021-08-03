@@ -172,10 +172,10 @@ const dummyData = [
         }
     },
     "urls": [
-        "/LeBronJames/1",
-        "/LeBronJames/2",
-        "/LeBronJames/3",
-        "/LeBronJames/4"
+        "/LeBronJames1.jpg",
+        "/LeBronJames2.jpg",
+        "/LeBronJames3.jpg",
+        "/LeBronJames4.jpg"
     ]
   },
   {
@@ -223,10 +223,10 @@ const dummyData = [
         }
     },
     "urls": [
-        "/TalenHorton-Tucker/1",
-        "/TalenHorton-Tucker/2",
-        "/TalenHorton-Tucker/3",
-        "/TalenHorton-Tucker/4"
+        "/TalenHorton-Tucker1.jpg",
+        "/TalenHorton-Tucker2.jpg",
+        "/TalenHorton-Tucker3.jpg",
+        "/TalenHorton-Tucker4.jpg"
     ]
   }
 ]
