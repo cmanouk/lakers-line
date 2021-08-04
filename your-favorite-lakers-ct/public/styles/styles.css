@@ -24,6 +24,17 @@ img {
 #app {
   margin: 0 auto; }
 
+.section-header {
+  height: 4rem;
+  width: 30vw;
+  background: #464646;
+  color: black;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px; }
+
 .header {
   display: flex;
   flex-direction: column;
@@ -35,7 +46,7 @@ img {
   background-size: cover;
   background-position: top; }
   .header h1 {
-    font-size: 6.5rem;
+    font-size: 8.5rem;
     font-weight: bold;
     text-transform: uppercase;
     background: linear-gradient(to right, purple, gold);
@@ -61,37 +72,58 @@ img {
   .header::after {
     content: '';
     width: 100vw;
-    height: .7rem;
+    height: .5rem;
     position: absolute;
     bottom: 0;
     left: 0;
     background: linear-gradient(to right, purple, gold); }
 
 .content-container {
-  width: 85%;
+  width: 80vw;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center; }
-  .content-container select {
-    margin: 7.5rem auto;
-    height: 5rem;
-    width: 50%;
-    max-width: 450px;
-    border: 1px solid #d8d8d8;
-    outline: none;
-    background: #303030;
-    color: #d8d8d8;
-    font-size: 2.5rem;
-    padding: 0 3rem;
-    -moz-appearance: none;
-    -webkit-appearance: none; }
+  .content-container .select-bar {
+    width: 100%;
+    margin: 5rem auto; }
+    .content-container .select-bar select {
+      height: 5rem;
+      border: 1px solid #d8d8d8;
+      outline: none;
+      background: #303030;
+      color: #d8d8d8;
+      font-size: 2.5rem;
+      padding: 0 3rem;
+      -moz-appearance: none;
+      -webkit-appearance: none; }
+    .content-container .select-bar .player-select {
+      width: 50%;
+      max-width: 450px; }
 
 .player-bio {
-  display: flex;
-  background: #d8d8d8; }
-  .player-bio__img--container {
-    height: 30rem;
+  color: whitesmoke;
+  box-sizing: border-box;
+  position: relative;
+  height: 32rem;
+  max-height: 32rem;
+  width: 100%; }
+  .player-bio__container {
+    margin: 0 auto;
+    display: flex;
+    height: 100%; }
+  .player-bio__left {
+    width: 50%;
     overflow: hidden; }
-  .player-bio__img {
-    object-fit: contain !important; }
+    .player-bio__left--img {
+      display: block;
+      object-fit: cover !important;
+      height: 100%;
+      width: 100%; }
+  .player-bio__right {
+    margin: 0 auto; }
+    .player-bio__right--container h3 {
+      font-size: 5rem; }
+      .player-bio__right--container h3 span {
+        font-size: 2rem;
+        text-transform: uppercase; }

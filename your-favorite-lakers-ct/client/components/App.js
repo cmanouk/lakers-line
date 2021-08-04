@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Header from './Header/Header';
-import Select from './Header/Select';
+import SelectBar from './SelectBar/SelectBar';
 import PlayerBio from './PlayerBio/PlayerBio';
 import PlayerImages from './PlayerImages/PlayerImages';
 import PlayerStats from './PlayerStats/PlayerStats';
@@ -27,13 +27,18 @@ const App = () => {
     setCurrPlayer(player)
   }
 
+  function sortPlayerList(input) {
+    console.log('hi');
+  }
+
   return (
     <div>
       <Header />
       {currPlayer.firstName ?
       <div className="content-container">
-        <Select
+        <SelectBar
           setPlayerProfile={setPlayerProfile}
+          sortPlayerList={sortPlayerList}
           players={players}
           currPlayer={currPlayer}
         />

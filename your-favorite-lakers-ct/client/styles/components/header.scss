@@ -10,7 +10,7 @@
   background-position: top;
 
   h1 {
-    font-size: 6.5rem;
+    font-size: 8.5rem;
     font-weight: bold;
     text-transform: uppercase;
     background: linear-gradient(to right, purple, gold);
@@ -43,7 +43,7 @@
   &::after {
     content: '';
     width: 100vw;
-    height: .7rem;
+    height: .5rem;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -52,24 +52,31 @@
 }
 
 .content-container {
-  width: 85%;
+  width: 80vw;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  select {
-    margin: 7.5rem auto;
-    height: 5rem;
-    width: 50%;
-    max-width: 450px;
-    border: 1px solid rgb(216, 216, 216);
-    outline: none;
-    background: #303030;
-    color: rgb(216, 216, 216);
-    font-size: 2.5rem;
-    padding: 0 3rem;
-    -moz-appearance: none;
-    -webkit-appearance: none;
+  .select-bar {
+    width: 100%;
+    margin: 5rem auto;
+
+    select {
+      height: 5rem;
+      border: 1px solid rgb(216, 216, 216);
+      outline: none;
+      background: #303030;
+      color: rgb(216, 216, 216);
+      font-size: 2.5rem;
+      padding: 0 3rem;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .player-select {
+      width: 50%;
+      max-width: 450px;
+    }
   }
 }

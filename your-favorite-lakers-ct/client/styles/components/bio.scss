@@ -1,13 +1,42 @@
 .player-bio {
-  display: flex;
-  background: #d8d8d8;
+  color: whitesmoke;
+  box-sizing: border-box;
+  position: relative;
+  height: 32rem;
+  max-height: 32rem;
+  width: 100%;
 
-  &__img--container {
-    height: 30rem;
-    overflow: hidden;
+
+  &__container {
+    margin: 0 auto;
+    display: flex;
+    height: 100%;
   }
 
-  &__img {
-    object-fit: contain !important;
+  &__left {
+    width: 50%;
+    overflow: hidden;
+
+    &--img {
+      display: block;
+      object-fit: cover !important;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  &__right {
+    margin: 0 auto;
+
+    &--container {
+      h3 {
+        font-size: 5rem;
+
+        span {
+          font-size: 2rem;
+          text-transform: uppercase;
+        }
+      }
+    }
   }
 }
