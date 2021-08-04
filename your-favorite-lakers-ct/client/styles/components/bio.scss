@@ -1,0 +1,13 @@
+.player-bio {
+  display: flex;
+  background: #d8d8d8;
+
+  &__img--container {
+    height: 30rem;
+    overflow: hidden;
+  }
+
+  &__img {
+    object-fit: contain !important;
+  }
+}

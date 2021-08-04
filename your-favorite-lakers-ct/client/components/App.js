@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Header from './Header/Header';
+import Select from './Header/Select';
 import PlayerBio from './PlayerBio/PlayerBio';
 import PlayerImages from './PlayerImages/PlayerImages';
 import PlayerStats from './PlayerStats/PlayerStats';
@@ -28,13 +29,14 @@ const App = () => {
 
   return (
     <div>
-      <Header
-        setPlayerProfile={setPlayerProfile}
-        players={players}
-        player={currPlayer}
-      />
+      <Header />
       {currPlayer.firstName ?
       <div className="content-container">
+        <Select
+          setPlayerProfile={setPlayerProfile}
+          players={players}
+          currPlayer={currPlayer}
+        />
         <PlayerBio player={currPlayer} />
         <PlayerImages urls={currPlayer.urls} />
         <PlayerStats player={currPlayer} />

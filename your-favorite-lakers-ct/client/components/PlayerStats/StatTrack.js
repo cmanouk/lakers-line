@@ -9,7 +9,7 @@ const StatTrack = ({ clsName, header, stats, keys }) => {
       <h6 className={`${clsName}__header`}>{header}</h6>
       <table className={`${clsName}__stats`}>
         <thead>
-          <tr>{keys.map((k) => <td>{k}</td>)}</tr>
+          <tr>{keys.map((k) => <td key={k}>{k}</td>)}</tr>
         </thead>
         <tbody>
           {statRowInfo.map((rowKey) =>

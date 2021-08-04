@@ -3,16 +3,12 @@ import Select from './Select';
 
 const Header = ({ setPlayerProfile, players, currPlayer }) => {
   return (
-    <div className='header'>
+    <section className='header'>
       <h1>
-        Your Favorite Lakers: <span>The easiest way to get up-to-date players' stats!</span>
+        Your Favorite Lakers
+        <span>The best place to get up-to-date player stats</span>
       </h1>
-      <Select
-        setPlayerProfile={setPlayerProfile}
-        players={players}
-        currPlayer={currPlayer}
-      />
-    </div>
+    </section>
   )
 }
 
