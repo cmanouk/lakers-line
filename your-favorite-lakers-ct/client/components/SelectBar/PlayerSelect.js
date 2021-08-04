@@ -4,6 +4,7 @@ const PlayerSelect = ({ currPlayer, players, setPlayerProfile }) => (
   <select
     onChange={(e) => setPlayerProfile(e.target.value)}
     className='player-select'
+    value={currPlayer._id}
   >
     {players.map((p) => (
       <option key={`${p.firstName}-${p.lastName}`} value={p._id}>

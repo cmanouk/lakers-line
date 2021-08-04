@@ -28,7 +28,14 @@ const App = () => {
   }
 
   function sortPlayerList(input) {
-    console.log('hi');
+    let sorted;
+    if (input.length > 3) {
+      sorted = [...players].sort((a, b) => a[input] > b[input]? 1 : -1);
+    } else {
+      sorted = [...players].sort((a, b) => b.seasonStats[input] - a.seasonStats[input]);
+    }
+    setPlayers(sorted);
+    setCurrPlayer(sorted[0]);
   }
 
   return (

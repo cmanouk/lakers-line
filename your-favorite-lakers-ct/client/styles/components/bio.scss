@@ -26,11 +26,14 @@
   }
 
   &__right {
-    margin: 0 auto;
+    padding-left: 5rem;
+    box-sizing: border-box;
+    width: 50%;
 
     &--container {
       h3 {
-        font-size: 5rem;
+        font-size: 6rem;
+        margin-left: -.4rem;
 
         span {
           font-size: 2rem;

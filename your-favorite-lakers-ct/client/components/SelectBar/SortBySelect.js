@@ -1,21 +1,27 @@
 import React from 'react';
 
 const SortBySelect = ({ sortPlayerList }) => {
-  const options = [
-    'alph-f',
-    'alph-l',
-    'pts',
-    'reb',
-    'ast',
-    'stl',
-    'blk'
-  ];
+  const options = {
+    'firstName': 'Alphabetical (first)',
+    'lastName': 'Alphabetical (last)',
+    'PTS': 'Points',
+    'REB': 'Rebounds',
+    'AST': 'Assists',
+    'STL': 'Steals',
+    'BLK': 'Blocks'
+  };
 
   return (
     <select
-      onChange={() => sortPlayerList(e.target.value)}
+      onChange={(e) => sortPlayerList(e.target.value)}
+      className='sort-by-select'
+      id='sort-select'
     >
-      <option></option>
+      {Object.keys(options).map((o) => (
+        <option key={o} value={o}>
+          {options[o]}
+        </option>
+      ))}
     </select>
   )
 }

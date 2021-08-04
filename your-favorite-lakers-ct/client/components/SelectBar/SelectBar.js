@@ -3,14 +3,16 @@ import PlayerSelect from './PlayerSelect';
 import SortBySelect from './SortBySelect';
 
 const SelectBar = ({ setPlayerProfile, sortPlayerList, players, currPlayer}) => (
-  <div className="select-bar">
+  <form className="select-bar">
     <PlayerSelect
       setPlayerProfile={setPlayerProfile}
       players={players}
       currPlayer={currPlayer}
     />
-    <SortBySelect sortPlayerList={sortPlayerList} />
-  </div>
+    <label htmlFor='sort-select'>Sort By
+      <SortBySelect sortPlayerList={sortPlayerList} />
+    </label>
+  </form>
 )
 
 export default SelectBar;
