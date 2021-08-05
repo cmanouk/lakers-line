@@ -5,7 +5,7 @@
   height: 32rem;
   max-height: 32rem;
   width: 100%;
-
+  margin-bottom: 5rem;
 
   &__container {
     margin: 0 auto;
@@ -29,6 +29,8 @@
     padding-left: 5rem;
     box-sizing: border-box;
     width: 50%;
+    display: flex;
+    align-items: center;
 
     &--container {
       h3 {
@@ -38,6 +40,19 @@
         span {
           font-size: 2rem;
           text-transform: uppercase;
+        }
+      }
+
+      ul {
+        font-size: 1.5rem;
+
+        span {
+          background: #303030;
+          display: inline-block;
+          width: 10rem;
+          text-align: center;
+          padding: 1rem;
+          margin: 1rem 3rem 0 0;
         }
       }
     }

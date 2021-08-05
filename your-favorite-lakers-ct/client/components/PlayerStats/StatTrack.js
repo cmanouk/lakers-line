@@ -13,7 +13,12 @@ const StatTrack = ({ clsName, header, stats, keys }) => {
         </thead>
         <tbody>
           {statRowInfo.map((rowKey) =>
-            <TableRow key={rowKey} stats={stats[rowKey]} rowKey={rowKey} keys={keys.slice(1)} />)}
+          <TableRow
+            key={rowKey}
+            stats={stats[rowKey]}
+            rowKey={rowKey}
+            keys={keys.slice(1)}
+          />)}
         </tbody>
       </table>
     </div>

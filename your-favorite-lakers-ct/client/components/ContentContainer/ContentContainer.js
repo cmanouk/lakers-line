@@ -13,8 +13,11 @@ const ContentContainer = ({ setPlayerProfile, sortPlayerList, players, currPlaye
       currPlayer={currPlayer}
     />
     <PlayerBio player={currPlayer} />
-    <PlayerImages urls={currPlayer.urls} />
-    <PlayerStats player={currPlayer} />
+    <div className="content-container__bottom">
+      <PlayerStats player={currPlayer} />
+      <PlayerImages urls={currPlayer.urls} />
+    </div>
+
   </div>
 )
 

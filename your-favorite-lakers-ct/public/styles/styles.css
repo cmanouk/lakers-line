@@ -110,6 +110,9 @@ img {
       width: 27.5%; }
     .content-container .select-bar .sort-by-select {
       margin-left: 1rem; }
+  .content-container__bottom {
+    width: 100%;
+    display: flex; }
 
 .player-bio {
   color: whitesmoke;
@@ -117,7 +120,8 @@ img {
   position: relative;
   height: 32rem;
   max-height: 32rem;
-  width: 100%; }
+  width: 100%;
+  margin-bottom: 5rem; }
   .player-bio__container {
     margin: 0 auto;
     display: flex;
@@ -133,10 +137,68 @@ img {
   .player-bio__right {
     padding-left: 5rem;
     box-sizing: border-box;
-    width: 50%; }
+    width: 50%;
+    display: flex;
+    align-items: center; }
     .player-bio__right--container h3 {
       font-size: 6rem;
       margin-left: -.4rem; }
       .player-bio__right--container h3 span {
         font-size: 2rem;
         text-transform: uppercase; }
+    .player-bio__right--container ul {
+      font-size: 1.5rem; }
+      .player-bio__right--container ul span {
+        background: #303030;
+        display: inline-block;
+        width: 10rem;
+        text-align: center;
+        padding: 1rem;
+        margin: 1rem 3rem 0 0; }
+
+.player-imgs {
+  width: 50%;
+  display: inline; }
+  .player-imgs__container {
+    position: relative;
+    height: 50rem; }
+  .player-imgs .player-img {
+    width: 50%;
+    height: 20rem;
+    position: absolute;
+    transition: all .3s ease-in-out; }
+    .player-imgs .player-img img {
+      display: block;
+      object-fit: cover !important;
+      height: 100%;
+      width: 100%; }
+    .player-imgs .player-img1 {
+      top: 0;
+      left: 12.5%; }
+    .player-imgs .player-img2 {
+      top: 25%;
+      left: 37.5%; }
+    .player-imgs .player-img3 {
+      top: 50%;
+      left: 12.5%; }
+    .player-imgs .player-img::after {
+      content: '';
+      position: inherit;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      background: transparent;
+      transition: all .3s ease-in-out; }
+    .player-imgs .player-img:hover {
+      transform: scale(1.08);
+      z-index: 1; }
+      .player-imgs .player-img:hover::after {
+        transform: scale(1.1);
+        border: .75rem solid purple;
+        left: -4%;
+        top: -4%; }
+
+.player-stats {
+  width: 50%;
+  display: inline;
+  color: whitesmoke; }

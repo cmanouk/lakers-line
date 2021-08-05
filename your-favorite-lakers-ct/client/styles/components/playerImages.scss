@@ -1,0 +1,60 @@
+.player-imgs {
+  width: 50%;
+  display: inline;
+
+  &__container {
+    position: relative;
+    height: 50rem;
+  }
+
+  .player-img {
+    width: 50%;
+    height: 20rem;
+    position: absolute;
+    transition: all .3s ease-in-out;
+
+    img {
+      display: block;
+      object-fit: cover !important;
+      height: 100%;
+      width: 100%;
+    }
+
+    &1 {
+      top: 0;
+      left: 12.5%;
+    }
+
+    &2 {
+      top: 25%;
+      left: 37.5%;
+    }
+
+    &3 {
+      top: 50%;
+      left: 12.5%;
+    }
+
+    &::after {
+      content: '';
+      position: inherit;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      background: transparent;
+      transition: all .3s ease-in-out;
+    }
+
+    &:hover {
+      transform: scale(1.08);
+      z-index: 1;
+
+      &::after {
+        transform: scale(1.1);
+        border: .75rem solid purple;
+        left: -4%;
+        top: -4%;
+      }
+    }
+  }
+}
