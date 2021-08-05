@@ -6,13 +6,13 @@ const PlayerBioRight = ({ player }) => {
     <div className="player-bio__right">
       <div className="player-bio__right--container">
         <h3>{firstName}<span> {lastName}</span></h3>
-        <div className="player-bio__right--info">
-          <p>{height}</p>
-          <p>{weight}</p>
-          <p>{jerseyNumber}</p>
-          <p>{position}</p>
-          <p>{age}</p>
-        </div>
+        <ul className="player-bio__right--info">
+          <li>{height}</li>
+          <li>{weight}</li>
+          <li>{jerseyNumber}</li>
+          <li>{position}</li>
+          <li>{age}</li>
+        </ul>
       </div>
     </div>
   )

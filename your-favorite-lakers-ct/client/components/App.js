@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Header from './Header/Header';
-import SelectBar from './SelectBar/SelectBar';
-import PlayerBio from './PlayerBio/PlayerBio';
-import PlayerImages from './PlayerImages/PlayerImages';
-import PlayerStats from './PlayerStats/PlayerStats';
+import ContentContainer from './ContentContainer/ContentContainer';
 import dummyData from '../dummyData';
 
 const App = () => {
@@ -42,19 +39,15 @@ const App = () => {
     <div>
       <Header />
       {currPlayer.firstName ?
-      <div className="content-container">
-        <SelectBar
-          setPlayerProfile={setPlayerProfile}
-          sortPlayerList={sortPlayerList}
-          players={players}
-          currPlayer={currPlayer}
-        />
-        <PlayerBio player={currPlayer} />
-        <PlayerImages urls={currPlayer.urls} />
-        <PlayerStats player={currPlayer} />
-      </div> :
-      null
-      }
+
+      <ContentContainer
+        setPlayerProfile={setPlayerProfile}
+        sortPlayerList={sortPlayerList}
+        players={players}
+        currPlayer={currPlayer}
+      /> :
+
+      null}
     </div>
   )
 }
