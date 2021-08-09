@@ -6,8 +6,8 @@ const SeasonStats = ({ stats, keys }) => (
     <ul className={'season-stats__stats'}>
       {keys.map((k) =>
       <li key={k} className='season-stats__stats--stats'>
-        <div>{k}</div>
-        <div>{stats[k]}</div>
+        <div className='stat-attr'>{k}</div>
+        <div className='stat-val'>{stats[k]}</div>
       </li>)}
     </ul>
   </div>

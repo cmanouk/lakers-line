@@ -57,4 +57,28 @@
       }
     }
   }
+
+  @media only screen and (max-width: 710px) {
+    width: 100%;
+
+    .player-img {
+       position: relative;
+       width: 30%;
+
+       &1,&2,&3 {
+         top: 0;
+         left: 0;
+       }
+
+       &::after {
+         position: absolute;
+       }
+    }
+
+    &__container {
+      display: flex;
+      height: fit-content;
+      justify-content: space-between;
+    }
+  }
 }

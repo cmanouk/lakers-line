@@ -2,7 +2,7 @@ html {
   box-sizing: border-box;
   font-size: 62.5%;
   font-family: sans-serif; }
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 850px) {
     html {
       font-size: 50%; } }
 
@@ -54,13 +54,13 @@ img {
     -webkit-background-clip: text;
     color: transparent;
     text-align: center;
-    z-index: 1; }
-    @media only screen and (max-width: 700px) {
-      .header h1 {
-        font-size: 3.5rem; } }
+    z-index: 1;
+    line-height: .85; }
     .header h1 span {
       font-size: 2.5rem;
-      display: block; }
+      display: block;
+      margin-top: 2rem;
+      line-height: 1.1; }
   .header::before {
     content: '';
     width: 100vw;
@@ -84,7 +84,8 @@ img {
   max-width: 900px;
   display: flex;
   flex-direction: column;
-  align-items: center; }
+  align-items: center;
+  padding-bottom: 5rem; }
   .content-container .select-bar {
     width: 100%;
     margin: 5rem auto;
@@ -113,6 +114,34 @@ img {
   .content-container__bottom {
     width: 100%;
     display: flex; }
+    @media only screen and (max-width: 710px) {
+      .content-container__bottom {
+        flex-direction: column-reverse;
+        width: 90vw; } }
+  @media only screen and (max-width: 950px) {
+    .content-container {
+      width: 90vw; } }
+  @media only screen and (max-width: 710px) {
+    .content-container .select-bar {
+      justify-content: center; }
+      .content-container .select-bar .player-select {
+        margin-right: 3.5rem; } }
+  @media only screen and (max-width: 575px) {
+    .content-container {
+      width: 90vw;
+      padding: 0 2.5rem; }
+      .content-container h1 {
+        font-size: 4rem; }
+      .content-container .select-bar {
+        width: 100%;
+        justify-content: center; }
+        .content-container .select-bar select {
+          padding: 1rem 1.5rem; }
+        .content-container .select-bar .player-select {
+          font-size: 2rem;
+          margin-right: 1rem; }
+        .content-container .select-bar .sort-by-select {
+          font-size: 1.25rem; } }
 
 .player-bio {
   color: whitesmoke;
@@ -122,10 +151,18 @@ img {
   max-height: 32rem;
   width: 100%;
   margin-bottom: 5rem; }
+  @media only screen and (max-width: 710px) {
+    .player-bio {
+      max-height: none;
+      height: fit-content; } }
   .player-bio__container {
     margin: 0 auto;
     display: flex;
     height: 100%; }
+    @media only screen and (max-width: 710px) {
+      .player-bio__container {
+        flex-direction: column;
+        align-items: center; } }
   .player-bio__left {
     width: 50%;
     overflow: hidden; }
@@ -134,6 +171,13 @@ img {
       object-fit: cover !important;
       height: 100%;
       width: 100%; }
+    @media only screen and (max-width: 710px) {
+      .player-bio__left {
+        width: 75%;
+        max-height: 260px; } }
+    @media only screen and (max-width: 575px) {
+      .player-bio__left {
+        width: 80%; } }
   .player-bio__right {
     padding-left: 5rem;
     box-sizing: border-box;
@@ -147,7 +191,7 @@ img {
         font-size: 2rem;
         text-transform: uppercase; }
     .player-bio__right--container ul {
-      font-size: 1.5rem; }
+      font-size: 1.75rem; }
       .player-bio__right--container ul span {
         background: #303030;
         display: inline-block;
@@ -155,6 +199,30 @@ img {
         text-align: center;
         padding: 1rem;
         margin: 1rem 3rem 0 0; }
+    @media only screen and (max-width: 710px) {
+      .player-bio__right {
+        width: 90vw;
+        padding: 0;
+        margin-top: 2.5rem;
+        justify-content: center; }
+        .player-bio__right--container {
+          display: flex;
+          flex-direction: column;
+          width: 100%; }
+          .player-bio__right--container h3 {
+            text-align: center;
+            margin-bottom: 1rem; }
+          .player-bio__right--container ul {
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+            width: 100%;
+            font-size: 1.65rem; }
+            .player-bio__right--container ul li {
+              width: 19%; }
+            .player-bio__right--container ul span {
+              width: 84.5%;
+              margin: 0 0 1rem 0; } }
 
 .player-imgs {
   width: 50%;
@@ -197,8 +265,87 @@ img {
         border: .75rem solid purple;
         left: -4%;
         top: -4%; }
+  @media only screen and (max-width: 710px) {
+    .player-imgs {
+      width: 100%; }
+      .player-imgs .player-img {
+        position: relative;
+        width: 30%; }
+        .player-imgs .player-img1, .player-imgs .player-img2, .player-imgs .player-img3 {
+          top: 0;
+          left: 0; }
+        .player-imgs .player-img::after {
+          position: absolute; }
+      .player-imgs__container {
+        display: flex;
+        height: fit-content;
+        justify-content: space-between; } }
 
 .player-stats {
   width: 50%;
   display: inline;
   color: whitesmoke; }
+  .player-stats .season-stats {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .player-stats .season-stats__header {
+      font-size: 4.5rem;
+      color: gold; }
+    .player-stats .season-stats__stats {
+      display: flex;
+      margin: 1.75rem 0 5rem 0; }
+      .player-stats .season-stats__stats div {
+        text-align: center;
+        margin: 1rem 1.5rem; }
+      .player-stats .season-stats__stats .stat-attr {
+        font-size: 2.5rem;
+        border-bottom: 1px solid gold; }
+      .player-stats .season-stats__stats .stat-val {
+        font-size: 1.5rem; }
+  .player-stats .stat-track {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .player-stats .stat-track__header {
+      width: 100%;
+      background: gold;
+      color: black;
+      padding: 1.5rem 0;
+      font-size: 3.5rem;
+      text-align: center;
+      font-weight: 500; }
+    .player-stats .stat-track table {
+      width: 100%; }
+    .player-stats .stat-track thead {
+      font-size: 2.25rem; }
+    .player-stats .stat-track tbody {
+      font-size: 1.65rem; }
+    .player-stats .stat-track td {
+      text-align: center; }
+    .player-stats .stat-track .dark-purple {
+      background: rgba(128, 0, 128, 0.304); }
+  .player-stats .previous-seasons__header {
+    margin-top: 5rem; }
+  @media only screen and (max-width: 710px) {
+    .player-stats {
+      width: 80%;
+      margin-top: 2.5rem;
+      align-self: center; }
+      .player-stats .season-stats__stats {
+        margin: 0 0 2.5rem 0; }
+        .player-stats .season-stats__stats .stat-attr {
+          font-size: 2.5rem; }
+        .player-stats .season-stats__stats .stat-val {
+          font-size: 2rem; }
+      .player-stats .stat-track thead {
+        font-size: 2.5rem; }
+      .player-stats .stat-track tbody {
+        font-size: 2rem; } }
+  @media only screen and (max-width: 575px) {
+    .player-stats {
+      width: 90vw; }
+      .player-stats .stat-track thead {
+        font-size: 2.25rem; }
+      .player-stats .stat-track tbody {
+        font-size: 1.75rem; } }

@@ -7,10 +7,20 @@
   width: 100%;
   margin-bottom: 5rem;
 
+  @media only screen and (max-width: 710px) {
+    max-height: none;
+    height: fit-content;
+  }
+
   &__container {
     margin: 0 auto;
     display: flex;
     height: 100%;
+
+    @media only screen and (max-width: 710px) {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   &__left {
@@ -22,6 +32,15 @@
       object-fit: cover !important;
       height: 100%;
       width: 100%;
+    }
+
+    @media only screen and (max-width: 710px) {
+      width: 75%;
+      max-height: 260px;
+    }
+
+    @media only screen and (max-width: 575px) {
+      width: 80%;
     }
   }
 
@@ -44,7 +63,7 @@
       }
 
       ul {
-        font-size: 1.5rem;
+        font-size: 1.75rem;
 
         span {
           background: #303030;
@@ -53,6 +72,41 @@
           text-align: center;
           padding: 1rem;
           margin: 1rem 3rem 0 0;
+        }
+      }
+    }
+
+    @media only screen and (max-width: 710px) {
+      width: 90vw;
+      padding: 0;
+      margin-top: 2.5rem;
+      justify-content: center;
+
+      &--container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        h3 {
+          text-align: center;
+          margin-bottom: 1rem;
+        }
+
+        ul {
+          display: flex;
+          justify-content: space-between;
+          text-align: center;
+          width: 100%;
+          font-size: 1.65rem;
+
+          li {
+            width: 19%;
+          }
+
+          span {
+            width: 84.5%;
+            margin: 0 0 1rem 0;
+          }
         }
       }
     }

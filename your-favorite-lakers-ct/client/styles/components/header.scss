@@ -19,14 +19,13 @@
     color: transparent;
     text-align: center;
     z-index: 1;
-
-    @media only screen and (max-width: 700px) {
-      font-size: 3.5rem;
-    }
+    line-height: .85;
 
     span {
       font-size: 2.5rem;
       display: block;
+      margin-top: 2rem;
+      line-height: 1.1;
     }
   }
 
@@ -58,6 +57,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 5rem;
 
   .select-bar {
     width: 100%;
@@ -97,5 +97,51 @@
   &__bottom {
     width: 100%;
     display: flex;
+
+    @media only screen and (max-width: 710px) {
+      flex-direction: column-reverse;
+      width: 90vw;
+    }
+  }
+
+  @media only screen and (max-width: 950px) {
+    width: 90vw;
+  }
+
+  @media only screen and (max-width: 710px) {
+    .select-bar {
+      justify-content: center;
+
+      .player-select {
+        margin-right: 3.5rem;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 575px) {
+    width: 90vw;
+    padding: 0 2.5rem;
+
+    h1 {
+      font-size: 4rem;
+    }
+
+    .select-bar {
+      width: 100%;
+      justify-content: center;
+
+      select {
+        padding: 1rem 1.5rem;
+      }
+
+      .player-select {
+        font-size: 2rem;
+        margin-right: 1rem;
+      }
+
+      .sort-by-select {
+        font-size: 1.25rem;
+      }
+    }
   }
 }

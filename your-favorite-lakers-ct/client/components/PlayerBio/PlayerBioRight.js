@@ -11,7 +11,7 @@ const PlayerBioRight = ({ player }) => {
         <ul className="player-bio__right--info">
           <li><span>Height</span> {height}</li>
           <li><span>Weight</span> {weight}</li>
-          <li><span>Jersey Number</span> {jerseyNumber}</li>
+          <li><span>Jersey</span> {jerseyNumber}</li>
           <li><span>Position</span> {position}</li>
           <li><span>Age</span> {age}</li>
         </ul>
