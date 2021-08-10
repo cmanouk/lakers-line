@@ -55,7 +55,9 @@ public class DataQueries {
 
         Element el = doc.getElementsByClass("PlayerHeader__Team_Info").first();
         data.add(el.child(1).text());
-        data.add(el.child(2).text());
+        if (el.childrenSize() == 3) {
+            data.add(el.child(2).text());
+        }
 
         return data;
     }

@@ -40,7 +40,7 @@ img {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10rem 0;
+  padding: 10rem 2.5rem;
   position: relative;
   background-image: url("../images/lakers.jpg");
   background-size: cover;
@@ -123,13 +123,13 @@ img {
       width: 90vw; } }
   @media only screen and (max-width: 710px) {
     .content-container .select-bar {
-      justify-content: center; }
+      justify-content: center;
+      margin: 4rem 0; }
       .content-container .select-bar .player-select {
         margin-right: 3.5rem; } }
   @media only screen and (max-width: 575px) {
     .content-container {
-      width: 90vw;
-      padding: 0 2.5rem; }
+      width: 90vw; }
       .content-container h1 {
         font-size: 4rem; }
       .content-container .select-bar {
@@ -173,11 +173,10 @@ img {
       width: 100%; }
     @media only screen and (max-width: 710px) {
       .player-bio__left {
-        width: 75%;
-        max-height: 260px; } }
+        width: 70%; } }
     @media only screen and (max-width: 575px) {
       .player-bio__left {
-        width: 80%; } }
+        width: 75%; } }
   .player-bio__right {
     padding-left: 5rem;
     box-sizing: border-box;
@@ -231,7 +230,7 @@ img {
     position: relative;
     height: 50rem; }
   .player-imgs .player-img {
-    width: 50%;
+    width: 55%;
     height: 20rem;
     position: absolute;
     transition: all .3s ease-in-out; }

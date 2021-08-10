@@ -52,9 +52,17 @@ public class PlayerController {
             List<String> ids = queries.getIds(els);
             ids.remove(0);
 
+            List<Player> currentPlayersInDb = playerService.read();
+            for (Player p : currentPlayersInDb) {
+                if (!ids.contains(p.get_id())) {
+                    playerService.delete(p.get_id());
+                }
+            }
+
             for (String id : ids) {
                 QueueRunnable qr = new QueueRunnable(id, playerService);
-                qr.executeRunnable();
+//                qr.executeRunnable();
+                qr.executePrevTenRunnable();
             }
         } catch(IOException e) {
             e.printStackTrace();

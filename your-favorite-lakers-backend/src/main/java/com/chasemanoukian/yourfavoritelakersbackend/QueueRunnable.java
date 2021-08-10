@@ -29,4 +29,14 @@ public class QueueRunnable {
         Thread thread = new Thread(runnable);
         thread.start();
     }
+
+    public void executePrevTenRunnable() {
+        PrevTenRunnable runnable = new PrevTenRunnable();
+        runnable.set_id(_id);
+        runnable.setLink("https://www.espn.com/nba/player/gamelog/_/id/" + _id);
+        runnable.setPlayerService(playerService);
+
+        Thread thread = new Thread(runnable);
+        thread.start();
+    }
 }

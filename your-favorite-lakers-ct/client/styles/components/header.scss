@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10rem 0;
+  padding: 10rem 2.5rem;
   position: relative;
   background-image: url("../images/lakers.jpg");
   background-size: cover;
@@ -111,6 +111,7 @@
   @media only screen and (max-width: 710px) {
     .select-bar {
       justify-content: center;
+      margin: 4rem 0;
 
       .player-select {
         margin-right: 3.5rem;
@@ -120,7 +121,6 @@
 
   @media only screen and (max-width: 575px) {
     width: 90vw;
-    padding: 0 2.5rem;
 
     h1 {
       font-size: 4rem;

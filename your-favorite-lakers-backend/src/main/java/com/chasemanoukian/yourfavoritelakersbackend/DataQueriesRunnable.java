@@ -68,8 +68,13 @@ public class DataQueriesRunnable implements Runnable {
                 newPlayer.set_id(_id);
                 newPlayer.setFirstName(playerName.get(0));
                 newPlayer.setLastName(playerName.get(1));
-                newPlayer.setPosition(jerseyAndPosition.get(1));
-                newPlayer.setJerseyNumber(jerseyAndPosition.get(0));
+                // logic to account for no jersey num: sound?
+                if (jerseyAndPosition.size() == 2) {
+                    newPlayer.setPosition(jerseyAndPosition.get(1));
+                    newPlayer.setJerseyNumber(jerseyAndPosition.get(0));
+                } else {
+                    newPlayer.setPosition(jerseyAndPosition.get(0));
+                }
                 newPlayer.setHeight(playerBio.get(0));
                 newPlayer.setWeight(playerBio.get(1));
                 newPlayer.setAge(playerBio.get(2));
