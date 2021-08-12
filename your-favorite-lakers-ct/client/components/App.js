@@ -9,14 +9,13 @@ const App = () => {
   const [currPlayer, setCurrPlayer] = useState({});
 
   useEffect(() => {
-    // axios.get('/api/players')
-    //   .then((res) => {
-    //     setPlayers(res.data);
-    //     console.log(res.data);
-    //   })
-    //   .catch((err) => console.log(err));
-    setPlayers(dummyData);
-    setCurrPlayer(dummyData[0]);
+    axios.get('/api/players')
+      .then((res) => {
+        const sorted = res.data.sort((a, b) => a['firstName'] > b['firstName'] ? 1 : -1);
+        setPlayers(sorted);
+        setCurrPlayer(sorted[0]);
+      })
+      .catch((err) => console.log(err));
   }, [])
 
   function setPlayerProfile(id) {

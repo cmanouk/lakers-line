@@ -41,7 +41,7 @@ public class PlayerController {
         return playerService.delete(id);
     }
 
-    @GetMapping(value = "/crawl", produces = "application/json")
+    @GetMapping(value = "/crawl/update", produces = "application/json")
     public void crawlPlayerStats() {
     // CR QueueRunnable and execute
         try {
@@ -61,11 +61,17 @@ public class PlayerController {
 
             for (String id : ids) {
                 QueueRunnable qr = new QueueRunnable(id, playerService);
-//                qr.executeRunnable();
-                qr.executePrevTenRunnable();
+                qr.executeRunnable();
+
             }
         } catch(IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @GetMapping(value = "/prevten/{id}", produces = "application/json")
+    public void crawlPrevTenById(@PathVariable String id) {
+        QueueRunnable qr = new QueueRunnable(id, playerService);
+        qr.executePrevTenRunnable();
     }
 }

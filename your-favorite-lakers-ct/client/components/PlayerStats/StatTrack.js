@@ -2,7 +2,7 @@ import React from 'react';
 import TableRow from './TableRow';
 
 const StatTrack = ({ clsName, header, stats, keys }) => {
-  const statRowInfo = Object.keys(stats);
+  const statRowInfo = clsName === 'previous-ten' ? Object.keys(stats).reverse() : Object.keys(stats);
 
   return (
     <div className={`${clsName} stat-track`}>

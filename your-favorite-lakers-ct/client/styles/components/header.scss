@@ -78,10 +78,25 @@
     }
 
     .player-select {
-      font-size: 2.5rem;
       width: 50%;
       max-width: 450px;
       margin-right: 5rem;
+      position: relative;
+
+      select {
+        font-size: 2.5rem;
+        width: 100%;
+        padding-right: 4rem;
+      }
+
+      svg {
+        position: absolute;
+        right: 1.25rem;
+        top: 1rem;
+        height: 2.5rem;
+        width: 2.5rem;
+        pointer-events: none;
+      }
     }
 
     .sort-select {
@@ -114,7 +129,7 @@
       margin: 4rem 0;
 
       .player-select {
-        margin-right: 3.5rem;
+        margin-right: 2.5rem;
       }
     }
   }
@@ -135,8 +150,15 @@
       }
 
       .player-select {
-        font-size: 2rem;
-        margin-right: 1rem;
+        margin-right: 5vw;
+
+        select {
+          font-size: 1.75rem;
+        }
+      }
+
+      span {
+        display: none;
       }
 
       .sort-by-select {

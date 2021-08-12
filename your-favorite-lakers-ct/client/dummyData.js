@@ -228,6 +228,57 @@ const dummyData = [
         "/TalenHorton-Tucker3.jpg",
         "/TalenHorton-Tucker4.jpg"
     ]
+  },
+  {
+    "_id": "21412",
+    "firstName": "Talen",
+    "lastName": "Horton-Tucker",
+    "position": "Shooting Guard",
+    "jerseyNumber": "#5",
+    "age": "11/25/2000 (20)",
+    "height": "6' 4\"",
+    "weight": "234 lbs",
+    "college": null,
+    "prevTen": {
+        "Thu 6/3 vsPHX": {
+            "BLK": "0",
+            "AST": "0",
+            "STL": "0",
+            "PTS": "12",
+            "REB": "2"
+        }
+    },
+    "seasonStats": {
+        "BLK": "0.3",
+        "AST": "2.8",
+        "STL": "1.0",
+        "PTS": "9.0",
+        "REB": "2.6"
+    },
+    "prevSeasons": {
+        "2019-20 LAL": {
+            "BLK": "0.2",
+            "AST": "1.0",
+            "GP": "6",
+            "STL": "1.3",
+            "PTS": "5.7",
+            "REB": "1.2"
+        },
+        "2020-21 LAL": {
+            "BLK": "0.3",
+            "AST": "2.8",
+            "GP": "65",
+            "STL": "1.0",
+            "PTS": "9.0",
+            "REB": "2.6"
+        }
+    },
+    "urls": [
+        "/RussellWestbrook1.jpg",
+        "/RussellWestbrook2.jpg",
+        "/RussellWestbrook3.jpg",
+        "/RussellWestbrook4.jpg"
+    ]
   }
 ]
 

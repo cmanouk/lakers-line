@@ -9,7 +9,7 @@ const SelectBar = ({ setPlayerProfile, sortPlayerList, players, currPlayer}) => 
       players={players}
       currPlayer={currPlayer}
     />
-    <label htmlFor='sort-select'>Sort By
+    <label htmlFor='sort-select'><span>Sort By</span>
       <SortBySelect sortPlayerList={sortPlayerList} />
     </label>
   </form>
