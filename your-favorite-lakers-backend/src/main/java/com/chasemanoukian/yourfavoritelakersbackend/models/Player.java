@@ -170,6 +170,14 @@ public class Player {
         this.setUrls(urls);
     }
 
+    public void setInitialPrevTenStats(String link) {
+
+    }
+
+    public void setInitialPrevSeasonStats() {
+
+    }
+
     @Override
     public String toString() {
         return String.format(

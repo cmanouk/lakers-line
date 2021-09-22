@@ -1,8 +1,9 @@
 package com.chasemanoukian.yourfavoritelakersbackend;
 
 import com.chasemanoukian.yourfavoritelakersbackend.models.Player;
-import com.chasemanoukian.yourfavoritelakersbackend.runnables.QueueRunnable;
+import com.chasemanoukian.yourfavoritelakersbackend.webparser.QueueRunnable;
 import com.chasemanoukian.yourfavoritelakersbackend.services.PlayerService;
+import com.chasemanoukian.yourfavoritelakersbackend.webparser.WebParserMethods;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
@@ -57,15 +58,11 @@ public class YourFavoriteLakersApplication {
 					}
 				}
 
+				// run separate threads for each player => crawl and parse newest data
 				for (String id : ids) {
 					QueueRunnable qr = new QueueRunnable(id, playerService);
-					qr.executeRunnable("https://www.espn.com/nba/player/_/id/");
+					qr.executeRunnable();
 				}
-
-				// "https://www.espn.com/nba/player/_/id/" => general
-				// "https://www.espn.com/nba/player/stats/_/id/" => prevSeasons
-				// "https://www.espn.com/nba/player/gamelog/_/id/" => prevTen
-
 			} catch(IOException e) {
 				e.printStackTrace();
 			}

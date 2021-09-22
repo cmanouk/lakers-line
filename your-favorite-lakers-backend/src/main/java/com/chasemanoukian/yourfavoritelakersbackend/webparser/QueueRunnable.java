@@ -1,4 +1,4 @@
-package com.chasemanoukian.yourfavoritelakersbackend.runnables;
+package com.chasemanoukian.yourfavoritelakersbackend.webparser;
 
 import com.chasemanoukian.yourfavoritelakersbackend.services.PlayerService;
 
@@ -11,8 +11,8 @@ public class QueueRunnable {
         this.playerService = playerService;
     }
 
-    public void executeRunnable(String link) {
-        WebParserRunnable runnable = new WebParserRunnable(_id, link.concat(_id), playerService);
+    public void executeRunnable() {
+        WebParserRunnable runnable = new WebParserRunnable(_id, playerService);
         Thread thread = new Thread(runnable);
         thread.start();
     }
