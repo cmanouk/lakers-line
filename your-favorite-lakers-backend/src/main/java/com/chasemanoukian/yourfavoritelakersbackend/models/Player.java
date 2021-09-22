@@ -1,4 +1,4 @@
-package com.chasemanoukian.yourfavoritelakersbackend;
+package com.chasemanoukian.yourfavoritelakersbackend.models;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -9,7 +9,6 @@ import java.util.Map;
 
 @Document
 public class Player {
-    // replace @Id | _id acts a doc primary key(?)
     private String _id;
 
     private String firstName;
@@ -129,6 +128,46 @@ public class Player {
 
     public void setUrls(List<String> urls) {
         this.urls = urls;
+    }
+
+    public void updatePrevTen(String gameStatsKey, Map<String, String> gameStats) {
+        Map<String, Map<String, String>> prevTen = this.getPrevTen();
+        if (!prevTen.containsKey(gameStatsKey)) {
+            prevTen.put(gameStatsKey, gameStats);
+            if (prevTen.size() > 10) {
+                prevTen.remove(0);
+            }
+            this.setSeasonStats(seasonStats);
+        }
+    }
+
+    public void setAllProperties(String id, List<String> playerName, List<String> jerseyAndPosition,
+                                 List<String> playerBio, Map<String, String> seasonStats) {
+        this.set_id(id);
+        this.setFirstName(playerName.get(0));
+        this.setLastName(playerName.get(1));
+
+        if (jerseyAndPosition.size() == 2) {
+            this.setPosition(jerseyAndPosition.get(1));
+            this.setJerseyNumber(jerseyAndPosition.get(0));
+        } else {
+            this.setPosition(jerseyAndPosition.get(0));
+        }
+
+        this.setHeight(playerBio.get(0));
+        this.setWeight(playerBio.get(1));
+        this.setAge(playerBio.get(2));
+        if (playerBio.size() == 4) {
+            this.setCollege(playerBio.get(3));
+        }
+
+        this.setSeasonStats(seasonStats);
+
+        List<String> urls = new ArrayList<>();
+        for (int i = 1; i <= 4; i++) {
+            urls.add("/" + playerName.get(0) + playerName.get(1) + i + ".jpg");
+        }
+        this.setUrls(urls);
     }
 
     @Override

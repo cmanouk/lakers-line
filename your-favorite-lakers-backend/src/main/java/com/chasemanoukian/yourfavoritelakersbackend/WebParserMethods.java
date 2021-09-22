@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 
-public class DataQueries {
+public class WebParserMethods {
     private static final String playerLink = "https://www.espn.com/nba/player/_/id/";
 
     public List<String> getIds(Elements els) {
@@ -92,4 +92,6 @@ public class DataQueries {
 
         return data;
     }
+
+
 }

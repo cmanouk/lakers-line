@@ -1,5 +1,7 @@
-package com.chasemanoukian.yourfavoritelakersbackend;
+package com.chasemanoukian.yourfavoritelakersbackend.runnables;
 
+import com.chasemanoukian.yourfavoritelakersbackend.models.Player;
+import com.chasemanoukian.yourfavoritelakersbackend.services.PlayerService;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;

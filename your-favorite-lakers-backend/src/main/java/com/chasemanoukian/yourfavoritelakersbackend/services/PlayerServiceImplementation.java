@@ -1,13 +1,15 @@
-package com.chasemanoukian.yourfavoritelakersbackend;
+package com.chasemanoukian.yourfavoritelakersbackend.services;
 
+import com.chasemanoukian.yourfavoritelakersbackend.models.Player;
+import com.chasemanoukian.yourfavoritelakersbackend.data.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
 
-@Component
-public class PlayerServiceImpl implements PlayerService {
+@Service
+public class PlayerServiceImplementation implements PlayerService {
     @Autowired
     private PlayerRepository playerRepository;
 

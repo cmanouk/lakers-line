@@ -1,11 +1,10 @@
-package com.chasemanoukian.yourfavoritelakersbackend;
+package com.chasemanoukian.yourfavoritelakersbackend.services;
 
-import org.springframework.stereotype.Service;
+import com.chasemanoukian.yourfavoritelakersbackend.models.Player;
 
 import java.util.List;
 import java.util.Map;
 
-@Service
 public interface PlayerService {
     Player create(Player player);
     List<Player> read();

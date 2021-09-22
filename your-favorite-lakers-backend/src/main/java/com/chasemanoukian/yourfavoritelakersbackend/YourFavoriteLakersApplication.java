@@ -1,11 +1,23 @@
 package com.chasemanoukian.yourfavoritelakersbackend;
 
+import com.chasemanoukian.yourfavoritelakersbackend.models.Player;
+import com.chasemanoukian.yourfavoritelakersbackend.runnables.QueueRunnable;
+import com.chasemanoukian.yourfavoritelakersbackend.services.PlayerService;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
+
+import java.io.IOException;
+import java.util.List;
 
 @SpringBootApplication
 @EnableMongoRepositories
@@ -20,32 +32,43 @@ public class YourFavoriteLakersApplication {
 	public RestTemplate getRestTemplate() {
 		return new RestTemplate();
 	}
-//	@Bean
-//	public ServletWebServerFactory serverContainer() {
-//		//Enable SSL Traffic
-//		TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory() {
-//			@Override
-//			protected void postProcessContext(Context context) {
-//				SecurityConstraint securityConstraint = new SecurityConstraint();
-//				securityConstraint.setUserConstraint("CONFIDENTIAL");
-//
-//				SecurityCollection collection = new SecurityCollection();
-//				collection.addPattern("/*");
-//				securityConstraint.addCollection(collection);
-//				context.addConstraint(securityConstraint);
-//			}
-//		};
-//
-//		tomcat.addAdditionalTomcatConnectors(httpToHttpsRedirectConnector());
-//		return tomcat;
-//	}
-//
-//	private Connector httpToHttpsRedirectConnector() {
-//		Connector connector = new Connector(TomcatServletWebServerFactory.DEFAULT_PROTOCOL);
-//		connector.setScheme("http");
-//		connector.setPort(8080);
-//		connector.setSecure(false);
-//		connector.setRedirectPort(8443);
-//		return connector;
-//	}
+
+	@Component
+	public class Scheduler {
+		@Autowired
+		private PlayerService playerService;
+
+		@Scheduled(cron = "0 * 9 * * ?")
+		public void executeScheduler() {
+			try {
+				Document doc = Jsoup.connect("https://www.espn.com/nba/team/roster/_/name/lal").get();
+				Elements els = doc.getElementsByTag("tr");
+
+				// Grab all ids for players currently on roster
+				WebParserMethods queries = new WebParserMethods();
+				List<String> ids = queries.getIds(els);
+				ids.remove(0);
+
+				// check ids against db and delete players that are no longer on roster
+				List<Player> currentPlayersInDb = playerService.read();
+				for (Player p : currentPlayersInDb) {
+					if (!ids.contains(p.get_id())) {
+						playerService.delete(p.get_id());
+					}
+				}
+
+				for (String id : ids) {
+					QueueRunnable qr = new QueueRunnable(id, playerService);
+					qr.executeRunnable("https://www.espn.com/nba/player/_/id/");
+				}
+
+				// "https://www.espn.com/nba/player/_/id/" => general
+				// "https://www.espn.com/nba/player/stats/_/id/" => prevSeasons
+				// "https://www.espn.com/nba/player/gamelog/_/id/" => prevTen
+
+			} catch(IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 }
