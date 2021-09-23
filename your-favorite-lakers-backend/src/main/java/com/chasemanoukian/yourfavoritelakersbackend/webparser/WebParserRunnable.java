@@ -62,6 +62,7 @@ public class WebParserRunnable implements Runnable {
                 } catch(IOException e) {
                     e.printStackTrace();
                 }
+
                 playerService.create(newPlayer);
             }
         } catch (IOException e) {

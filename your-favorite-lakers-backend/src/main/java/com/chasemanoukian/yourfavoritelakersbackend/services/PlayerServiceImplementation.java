@@ -1,7 +1,7 @@
 package com.chasemanoukian.yourfavoritelakersbackend.services;
 
 import com.chasemanoukian.yourfavoritelakersbackend.models.Player;
-import com.chasemanoukian.yourfavoritelakersbackend.data.PlayerRepository;
+import com.chasemanoukian.yourfavoritelakersbackend.repositories.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

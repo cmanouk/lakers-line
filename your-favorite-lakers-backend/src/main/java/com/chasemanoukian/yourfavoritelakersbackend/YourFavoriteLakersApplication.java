@@ -1,8 +1,8 @@
 package com.chasemanoukian.yourfavoritelakersbackend;
 
 import com.chasemanoukian.yourfavoritelakersbackend.models.Player;
-import com.chasemanoukian.yourfavoritelakersbackend.webparser.QueueRunnable;
 import com.chasemanoukian.yourfavoritelakersbackend.services.PlayerService;
+import com.chasemanoukian.yourfavoritelakersbackend.webparser.QueueRunnable;
 import com.chasemanoukian.yourfavoritelakersbackend.webparser.WebParserMethods;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -17,6 +17,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.util.List;
 
@@ -39,7 +40,8 @@ public class YourFavoriteLakersApplication {
 		@Autowired
 		private PlayerService playerService;
 
-		@Scheduled(cron = "0 * 9 * * ?")
+		@PostConstruct
+		@Scheduled(cron = "0 0 * * *")
 		public void executeScheduler() {
 			try {
 				Document doc = Jsoup.connect("https://www.espn.com/nba/team/roster/_/name/lal").get();

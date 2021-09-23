@@ -1,4 +1,4 @@
-package com.chasemanoukian.yourfavoritelakersbackend.data;
+package com.chasemanoukian.yourfavoritelakersbackend.repositories;
 
 import com.chasemanoukian.yourfavoritelakersbackend.models.Player;
 import org.springframework.data.mongodb.repository.MongoRepository;
