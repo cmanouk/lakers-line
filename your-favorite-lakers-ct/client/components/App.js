@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Header from './Header/Header';
+import LoaderContainer from './LoaderContainer/LoaderContainer';
 import ContentContainer from './ContentContainer/ContentContainer';
-import dummyData from '../dummyData';
 
 const App = () => {
-  const [players, setPlayers] = useState([]);
-  const [currPlayer, setCurrPlayer] = useState({});
+  const [ players, setPlayers ] = useState([]);
+  const [ currPlayer, setCurrPlayer ] = useState({});
+  const [ loading, setLoading ] = useState(true);
+  const [ error, setError ] = useState('');
 
   useEffect(() => {
     axios.get('/api/players')
@@ -15,20 +16,26 @@ const App = () => {
         setPlayers(sorted);
         setCurrPlayer(sorted[0]);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        setError(err);
+      })
+      .finally(() => setLoading(false), 2000);
   }, [])
 
   function setPlayerProfile(id) {
-    const player = players.filter((p) => p._id === id)[0];
-    setCurrPlayer(player)
+    const player = players.filter((p) =>
+      p._id === id)[0];
+    setCurrPlayer(player);
   }
 
   function sortPlayerList(input) {
     let sorted;
     if (input.length > 3) {
-      sorted = [...players].sort((a, b) => a[input] > b[input]? 1 : -1);
+      sorted = [...players].sort((a, b) =>
+        a[input] > b[input]? 1 : -1);
     } else {
-      sorted = [...players].sort((a, b) => b.seasonStats[input] - a.seasonStats[input]);
+      sorted = [...players].sort((a, b) =>
+        b.seasonStats[input] - a.seasonStats[input]);
     }
     setPlayers(sorted);
     setCurrPlayer(sorted[0]);
@@ -36,17 +43,18 @@ const App = () => {
 
   return (
     <div>
-      <Header />
-      {currPlayer.firstName ?
+      {loading ?
+      <LoaderContainer />:
+
+      error ?
+      <Error error={error} /> :
 
       <ContentContainer
         setPlayerProfile={setPlayerProfile}
         sortPlayerList={sortPlayerList}
         players={players}
         currPlayer={currPlayer}
-      /> :
-
-      null}
+      />}
     </div>
   )
 }

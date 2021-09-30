@@ -8,7 +8,7 @@ const PlayerImage = ({ url, id }) => {
     <div className={`player-img player-img${id}`}>
       <img
         src={`${domain}${endpoint}`}
-        alt="player image"
+        alt='player image'
         onError={() => setEndpoint('/LakersLogoReplacement.jpg')}
       />
     </div>

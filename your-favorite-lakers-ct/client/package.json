@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --watch",
     "build:prod": "webpack",
-    "watch:sass": "node-sass styles/main.scss ../public/styles/styles.css -w"
+    "watch:sass": "node-sass styles/main.scss '../../your-favorite-lakers-backend/src/main/resources/static/styles.css' -w"
   },
   "keywords": [],
   "author": "Chase Manoukian",
@@ -14,7 +14,8 @@
   "dependencies": {
     "axios": "^0.21.1",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-loader-spinner": "^4.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",

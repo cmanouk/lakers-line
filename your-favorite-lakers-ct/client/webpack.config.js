@@ -16,8 +16,8 @@ module.exports = {
     extensions: ['*', '.js', '.jsx'],
   },
   output: {
-    // path: path.resolve(__dirname, '../../your-favorite-lakers-backend/src/main/resources/static'),
-    path: path.resolve(__dirname, '../public'),
+    path: path.resolve(__dirname, '../../your-favorite-lakers-backend/src/main/resources/static'),
+    // path: path.resolve(__dirname, '../public'),
     filename: 'bundle.js',
   }
 };
