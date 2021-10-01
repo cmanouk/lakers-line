@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import LoaderContainer from './LoaderContainer/LoaderContainer';
+import Error from './Error/Error';
 import ContentContainer from './ContentContainer/ContentContainer';
 
 const App = () => {
@@ -17,9 +18,9 @@ const App = () => {
         setCurrPlayer(sorted[0]);
       })
       .catch((err) => {
-        setError(err);
+        setError(err.message);
       })
-      .finally(() => setLoading(false), 2000);
+      .finally(() => setLoading(false));
   }, [])
 
   function setPlayerProfile(id) {
@@ -47,7 +48,7 @@ const App = () => {
       <LoaderContainer />:
 
       error ?
-      <Error error={error} /> :
+      <Error message={error} /> :
 
       <ContentContainer
         setPlayerProfile={setPlayerProfile}
