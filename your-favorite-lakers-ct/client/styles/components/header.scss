@@ -49,6 +49,7 @@
       display: inline-block;
       background: linear-gradient(to right, purple, gold);
       -webkit-background-clip: text;
+      background-clip: text;
       color: transparent;
       text-align: center;
       line-height: .85;

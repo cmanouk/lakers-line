@@ -3,6 +3,7 @@ package com.chasemanoukian.yourfavoritelakersbackend.utils;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
@@ -14,11 +15,11 @@ import java.util.function.Function;
 
 @Component
 public class JwtUtility implements Serializable {
+    @Value("${secret}")
+    private String secret;
+
     private static final long serialVersionUID = -2550185165626007488L;
-
     public static final long JWT_TOKEN_VALIDITY = 10 * 60 * 60;
-
-    private String secret = "secret";
 
     //retrieve username from jwt token
     public String getUsernameFromToken(String token) {
@@ -34,7 +35,7 @@ public class JwtUtility implements Serializable {
         final Claims claims = getAllClaimsFromToken(token);
         return claimsResolver.apply(claims);
     }
-    //for retrieveing any information from token we will need the secret key
+    //for retrieving any information from token we will need the secret key
     private Claims getAllClaimsFromToken(String token) {
         return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
     }

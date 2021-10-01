@@ -41,7 +41,7 @@ public class YourFavoriteLakersApplication {
 		private PlayerService playerService;
 
 		@PostConstruct
-		@Scheduled(cron = "0 0 * * * *")
+		@Scheduled(cron = "0 0 23 * * *")
 		public void executeScheduler() {
 			try {
 				Document doc = Jsoup.connect("https://www.espn.com/nba/team/roster/_/name/lal").get();
